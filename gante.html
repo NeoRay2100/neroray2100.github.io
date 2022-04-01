@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <meta http-equiv="x-ua-compatible" content="ie=edge" /> -->
+    <link
+      rel="icon"
+      href="https://static.jianshukeji.com/hcode/images/favicon.ico"
+    />
+    <style>
+      #container {
+        min-width: 300px;
+        max-width: 800px;
+        height: 300px;
+        margin: 1em auto;
+      }
+    </style>
+    <script src="https://cdn.highcharts.com.cn/highcharts/highcharts.js"></script>
+    <script src="https://cdn.highcharts.com.cn/highcharts/modules/exporting.js"></script>
+    <script src="https://cdn.highcharts.com.cn/highcharts/modules/xrange.js"></script>
+    <script src="https://cdn.highcharts.com.cn/highcharts/modules/oldie.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      Highcharts.chart("container", {
+        chart: {
+          type: "xrange",
+        },
+
+        //去水印
+        credits: {
+          enabled: false,
+        },
+        title: {
+          text: "用户活动甘特图",
+        },
+        xAxis: {
+          type: "datetime",
+          dateTimeLabelFormats: {
+            week: "%Y/%m/%d",
+          },
+        },
+        yAxis: {
+          title: {
+            text: "",
+          },
+          categories: [
+            "新会员等级",
+            "刮刮乐",
+            "任务中心",
+            "券商城活动",
+            "券商城日常售卖",
+            "豪礼风暴 1积分兑换",
+          ],
+          reversed: true,
+        },
+        tooltip: {
+          dateTimeLabelFormats: {
+            day: "%Y/%m/%d",
+          },
+        },
+        //去图例
+        legend:{
+            enabled: false
+        },
+        series: [
+          {
+            name: "Q1活动",
+            // pointPadding: 0,
+            // groupPadding: 0,
+            borderColor: "gray",
+            // pointWidth: 20,
+
+            data: [
+              // 新会员等级
+              {
+                x: Date.UTC(2022, 0, 1),
+                x2: Date.UTC(2022, 2, 31),
+                y: 0,
+                // partialFill: 0.25,
+              },
+
+              //刮刮乐
+              {
+                x: Date.UTC(2022, 0, 12),
+                x2: Date.UTC(2022, 1, 12),
+                y: 1,
+              },
+              {
+                x: Date.UTC(2022, 1, 14),
+                x2: Date.UTC(2022, 2, 14),
+                y: 1,
+              },
+
+              //任务中心
+              {
+                x: Date.UTC(2022, 0, 1),
+                x2: Date.UTC(2022, 2, 31),
+                y: 2,
+              },
+              // 券商城活动
+              {
+                x: Date.UTC(2022, 1, 23),
+                x2: Date.UTC(2022, 1, 28),
+                y: 3,
+              },
+
+              {
+                x: Date.UTC(2022, 2, 26),
+                x2: Date.UTC(2022, 2, 31),
+                y: 3,
+              },
+              // 券商城日常售卖
+              {
+                x: Date.UTC(2022, 0, 1),
+                x2: Date.UTC(2022, 2, 31),
+                y: 4,
+              },
+              //豪礼风暴 1积分兑换
+              {
+                x: Date.UTC(2022, 2, 1),
+                x2: Date.UTC(2022, 2, 31),
+                y: 5,
+              },
+            ],
+            dataLabels: {
+              enabled: true,
+            },
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>
